@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width = device-width, initial-scale=1.0">
+	<title>Device Management App</title>
+
+<!-- Link the Web App Manifest -->
+	<link rel="manifest" href="manifest.json">
+
+<!-- Optional but recommended for iOS -->
+	<link rel="apple-touch-icon" href="flask-icon-192.png">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<meta name="apple-mobile-web-app-title" content="Chemical Inventories">
+
+<!-- Link to Custom Stylesheet -->
+	<link rel="stylesheet" href="styles.css">
+
+<!-- Barcode Scanner -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+
+<!-- Upload Excel Reader -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+<!-- Generate Labels -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+
+</head>
+<body>
+
+<!-- Page Title -->
+	<header class = "page=title">
+		<h1>Device Management</h1>
+	</header>
+	
+<!-- Login Section -->
+	<div id="login-section" class="login-container">
+		<h2>Login</h2>
+		<input type = "text" id="username" placeholder="Welcome back!" />
+		<button id = "login-btn">Login</button>
+	</div>
+
+<!-- Home Page Section -->
+	<div id="home-section" class="home-container" style="display: none;">
+        	<h2>Hello, <span id="display-name"></span>! What would you like to do?</h2>
+		<div class="actions-container">
+        		<button onclick = "manageDevices()">Manage Devices</button>
+			<button onclick = "manageChemicals()">Manage Chemicals</button>
+			<button onclick = "manageInstruments()">Manage Instruments</button>
+    		</div>
+
+<!-- Upload Excels -->
+	<div style = "margin-top: 40px;>
+		<h3>Upload Device Inventory</h3>
+		<input type = "file" id="excel-file" accept = ".xlsx, .xls, .csv" onchange = "handleDInventoryUpload(event)" />
+		<h3>Upload Chemical Inventory</h3>
+		<input type = "file" id="excel-file" accept = ".xlsx, .xls, .csv" onchange = "handleCInventoryUpload(event)" />
+		<h3>Upload Chemical Inventory</h3>
+		<input type = "file" id="excel-file" accept = ".xlsx, .xls, .csv" onchange = "handleIInventoryUpload(event)" />
+		
