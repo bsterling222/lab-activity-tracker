@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginSection = document.getElementById('login-section');
     const mainMenu = document.getElementById('main-menu');
     const logoutButton = document.getElementById('logout-button');
-    const solutionsSection = document.getElementById('solutionsButton')
+    const solutionsSection = document.getElementById('solutions')
     const RuHexSection = document.getElementById('RuHex-button')
     const FerriSection = document.getElementById('Ferri-button')
     const DASection = document.getElementById('DA-button')
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const EPSection = document.getElementById('EP-button')
     const AASection = document.getElementById('AA-button')
     const newSolutionSection = document.getElementById('makeSolutionButton')
+    const backToMenuButton = document.getElementById("backToMenuButton")
 
 // Login form Submission Handling
     loginForm.addEventListener('submit', (event) => {
@@ -92,6 +93,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // New Solutions Section 
     newSolutionSection.addEventListener('click',() => {
+        mainMenu.style.display = "block";
+        solutionsSection.style.display = 'none';
+    });
+// Back to Main Menu Button 
+    backToMenuButton.addEventListener('click',() => {
         mainMenu.style.display = "block";
         solutionsSection.style.display = 'none';
     });

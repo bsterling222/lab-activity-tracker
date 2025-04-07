@@ -5,6 +5,12 @@
     box-sizing: border-box;
 }
 
+section h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #124E66;
+  }
+ 
 
 /* Basic Base Style */
 body { 
@@ -37,7 +43,8 @@ header.page-title h1 {
 
 main {
     display: flex;
-    align-content: center;
+    flex-direction: column;
+    align-items: center;
     padding: 2rem;
     max-width: 800px;
     margin: 0 auto;
@@ -54,6 +61,24 @@ section {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+section button {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 0.5rem auto;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    background-color: #346F6F;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  section button:hover {
+    background-color: #124E66;
+  }
 
 /* Form Layout */
 form {
@@ -73,25 +98,13 @@ input[type="text"] {
     transition: border-color 0.3s;   
   }
 
-/* Button Styling */
-button {
-    padding: 0.75rem;
-    font-size: 1rem;
-    background-color: #346F6F;
-    color: white;
-    border: none;
-    border-radius: 0.25rem;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #124E66;
-}
-
-/*Main Menu Styling*/
+/* Main Menu Styling */
 #main-menu {
     text-align: center;
     padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #main-menu h2 {
@@ -99,9 +112,11 @@ button:hover {
     color: #124E66;
 }
 
-
 #main-menu button {
-    margin: 0.5rem 0;
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 0.5rem auto;
     padding: 0.75rem;
     font-size: 1rem;
     border-radius: 0.25rem;
@@ -110,6 +125,7 @@ button:hover {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-align: center;
 }
 
 #main-menu button:hover {
@@ -117,13 +133,13 @@ button:hover {
 }
 
 /* Solutions Section Layout */
-#Solutions {
+#solutions {
     text-align: center;
     padding-top: 1rem;
   }
   
   /* Common solution buttons */
-  #Solutions button {
+  #solutions button {
     display: block;
     width: 100%;
     max-width: 400px;
@@ -138,7 +154,7 @@ button:hover {
     transition: background-color 0.3s ease;
   }
   
-  #Solutions button:hover {
+  #solutions button:hover {
     background-color: #124E66;
   }
   
