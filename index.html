@@ -49,24 +49,107 @@
 <!-- Main Menu Section (Hidden until logged in)-->
 		<section id="main-menu" style="display: none;">
 			<h2>Welcome Back!</h2>
+			<button id="trackActivityButton">Track Activity</button>
 			<button id="solutionsButton">Solutions</button>
+			<button id="undoButton">Undo Last Action</button>
+			<button id="generateLabelsButton">Generate Labels</button>
 			<button id="logout-button">Logout</button>
 		</section>
 	</main>
 
+<!-- Label Generation Section (Hidden until logged in)-->	
+	<section id="label-settings" style="display: none;">
+		<h2>Label Settings</h2>
+		<label for="label-type">Type:</label>
+		<select id="label-type">
+			<option value="All">All Labels</option>
+			<option value="Chemical">Chemical</option>
+			<option value="Solution">Solution</option>
+			<option value="Device">Device</option>
+			<option value="Instrument">Instrument</option>
+		</select>
+		<div id="label-select-controls" style="margin: 12px 0; display: flex; justify-content: center; align-items: center; gap: 12px;">
+			<button id="selectAllLabels" type="button">Select All</button>
+			<button id="deselectAllLabels" type="button">Deselect All</button>
+		</div>	
+		
+		<div id="label-checkboxes" style="margin: 12px 0;"></div>
+
+		<label for="skip-labels">Skip Labels (0–29):</label>
+		<input type="number" id="skip-labels" value="0" min="0" max="29" />
+
+		<div id="label-options">
+			<!-- Dynamic fields like volume, date, etc. will be injected here based on type -->
+		</div>
+
+		<button id="generatePDFButton">Generate PDF</button>
+		<button id="cancelLabelSettings">Cancel</button>
+	</section>
+
+
+<!-- Excel Upload (Hidden until logged in)-->
+		<section id="excel-upload-section" style="display: none;">
+			<div class="upload-container">
+				<input type="file" id="excel-file" accept=".xlsx, .xls" />
+				<p id="file-name-display"></p>
+				<button id="clear-file-button" class="button-standard">Clear File</button>
+			</div>
+		</section>
+
 <!-- Solutions Menu (Hidden until selected)-->
 		<section id="solutions" style="display: none;">
 			<h2>Solutions</h2>
-			<button id="RuHex-button">5mM RuHex in 500 mM KCl</button>
-			<button id="Ferri-button">5mM Ferricyanide in 500 mM KCl</button>
-			<button id="aCSF-button">aCSF solution</button>
-			<button id="DA-button">Dopamine</button>
-			<button id="NE-button">Norepinephrine</button>
-			<button id="EP-button">Epinephrine</button>
-			<button id="AA-button">Ascorbic Acid</button>
+			<div id="solutions-list"></div>
 			<button id="makeSolutionButton">Make a new Solution</button>
 			<button id="backToMenuButton">← Back to Main Menu</button>
 		</section>
+
+<!-- Solution Creation Section -->
+		<section id="make-solution-section" style="display: none;">
+			<h2>Make a New Solution</h2>
+		
+			<!-- Choose or Create Solution -->
+			<div style="text-align: center; margin-top: 1rem;">
+				<label for="existing-solution" style="display: block; margin-bottom: 0.5rem;">Choose Existing Solution or Create New:</label>
+				<select id="existing-solution" style="width: 60%; padding: 6px; text-align: center;">
+				<option value="">-- Select or Create --</option>
+				<option value="__new__">+ Create New Solution</option>
+				</select>
+			</div>
+  
+			<!-- New Solution Name -->
+			<div id="new-solution-name-container" style="display: none; margin-top: 0.5rem; text-align: center;">
+				<label for="new-solution-name" style="display: block; margin-bottom: 0.5rem;">New Solution Name:</label>
+				<input type="text" id="new-solution-name" placeholder="Enter solution name" style="padding: 6px; width: 60%; text-align: center;" />
+			</div>
+
+			<!-- Volume Made -->
+			<div style="margin-top: 1rem; text-align: center;">
+				<label for="solution-volume-made" style="display: block; margin-bottom: 0.5rem;">Volume Made (mL):</label>
+				<input type="number" id="solution-volume-made" placeholder="e.g. 100" style="padding: 6px; width: 60%; text-align: center;" />
+			</div>
+  
+			<!-- Barcode Display -->
+			<div style="text-align: center; margin-top: 1rem;">
+				<label for="generated-barcode" style="display: block; margin-bottom: 0.5rem;">Generated Barcode:</label>
+				<input type="text" id="generated-barcode" readonly style="width: 60%; padding: 6px; text-align: center;" />
+			</div>
+		
+			<!-- Scan Chemicals -->
+			<div style="margin-top: 1rem;">
+			<button id="start-chemical-scan" class="button-standard">Scan Chemicals Used</button>
+			<ul id="scanned-chemicals-list"></ul>
+			</div>
+		
+			<!-- Finalize Buttons -->
+			<div style="margin-top: 1.5rem;">
+			<button id="finalize-solution-button" class="button-standard">Add to Excel</button>
+			<button id="print-solution-label-button" class="button-standard">Print Label</button>
+			<button id="cancel-make-solution" class="button-standard">Cancel</button>
+			</div>
+		</section>
+  
+
 <!-- Linking app.js to html-->
 	<script src="app.js"></script>
 
